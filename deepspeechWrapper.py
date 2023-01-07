@@ -11,7 +11,9 @@ MODELS_DIR = "models"
 
 
 MODELS_PER_LANG = {
-    "EN": {"scorer":"/EN/deepspeech-0.9.3-models.scorer", "model":"/EN/deepspeech-0.9.3-models.pbmm"}
+    "EN": {"scorer":"/EN/deepspeech-0.9.3-models.scorer", "model":"/EN/deepspeech-0.9.3-models.pbmm"},
+    "IT": {"scorer":"/IT/kenlm_it.scorer", "model":"/IT/output_graph_it.pbmm"},
+    "ES": {"scorer":"/ES/kenlm_es.scorer", "model":"/ES/output_graph_es.pbmm"}
 }
 
 class ASR:
