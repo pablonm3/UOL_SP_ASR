@@ -1,6 +1,7 @@
 import argparse
 from deepspeechWrapper import ASR as DPASR
 from jiwer import wer
+import jiwer
 import numpy as np
 
 #TODO: add my recorded audio
@@ -41,7 +42,7 @@ def run(system, lang):
     WERs = []
     for audio_filename in audio_filenames:
         prediction = acr.predict(f"{SOUNDS_DIR}/{audio_filename}")
-        ground_truth = GROUND_TRUTHS[audio_filename]
+        ground_truth = jiwer.RemovePunctuation()(GROUND_TRUTHS[audio_filename])
         error_rate = wer(ground_truth.lower(), prediction.lower())
         WERs.append(error_rate)
         print(f'prediction for {audio_filename}: "{prediction}" - ground_truth:"{ground_truth}" -wer: {error_rate}')
