@@ -1,5 +1,6 @@
 import argparse
 from deepspeechWrapper import ASR as DPASR
+from voskWrapper import ASR as VOSKASR
 from jiwer import wer
 import jiwer
 import numpy as np
@@ -37,6 +38,8 @@ def run(system, lang):
     acr = None
     if(system == "deepspeech"):
         acr = DPASR(lang)
+    if(system== "vosk_small" or system== "vosk_md" ):
+        acr = VOSKASR(system)
     SOUNDS_DIR = "sounds/"+lang
     audio_filenames = AUDIO_FILES[lang]
     WERs = []
